@@ -18,6 +18,7 @@
 		C801A53317BC815C008B4ADD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C801A53217BC815C008B4ADD /* Default-568h@2x.png */; };
 		C801A53617BC815C008B4ADD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C801A53417BC815C008B4ADD /* MainStoryboard.storyboard */; };
 		C801A53917BC815C008B4ADD /* rememberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C801A53817BC815C008B4ADD /* rememberViewController.m */; };
+		C801A54117BC8E58008B4ADD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C801A54017BC8E58008B4ADD /* StartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		C801A53517BC815C008B4ADD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C801A53717BC815C008B4ADD /* rememberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rememberViewController.h; sourceTree = "<group>"; };
 		C801A53817BC815C008B4ADD /* rememberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rememberViewController.m; sourceTree = "<group>"; };
+		C801A53F17BC8E58008B4ADD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		C801A54017BC8E58008B4ADD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				C801A52B17BC815C008B4ADD /* rememberAppDelegate.h */,
 				C801A52C17BC815C008B4ADD /* rememberAppDelegate.m */,
 				C801A53417BC815C008B4ADD /* MainStoryboard.storyboard */,
+				C801A53F17BC8E58008B4ADD /* StartViewController.h */,
+				C801A54017BC8E58008B4ADD /* StartViewController.m */,
 				C801A53717BC815C008B4ADD /* rememberViewController.h */,
 				C801A53817BC815C008B4ADD /* rememberViewController.m */,
 				C801A52317BC815C008B4ADD /* Supporting Files */,
@@ -177,6 +182,7 @@
 				C801A52917BC815C008B4ADD /* main.m in Sources */,
 				C801A52D17BC815C008B4ADD /* rememberAppDelegate.m in Sources */,
 				C801A53917BC815C008B4ADD /* rememberViewController.m in Sources */,
+				C801A54117BC8E58008B4ADD /* StartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

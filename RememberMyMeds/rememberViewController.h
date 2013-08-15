@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface rememberViewController : UIViewController
+@interface rememberViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *medName;
+@property (weak, nonatomic) IBOutlet UITextView *pharmTextView;
+
+- (IBAction)hideKeyboard:(UIButton *)sender;
 
 @end
