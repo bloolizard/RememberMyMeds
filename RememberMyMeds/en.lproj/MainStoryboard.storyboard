@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="AgE-26-SMa" style="IBUITableViewCellStyleDefault" id="Qza-E5-mQg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MedCell" textLabel="AgE-26-SMa" detailTextLabel="Sot-ra-khO" style="IBUITableViewCellStyleSubtitle" id="Qza-E5-mQg">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -21,17 +21,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AgE-26-SMa">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sot-ra-khO">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="2" kind="push" identifier="medName" id="sEK-eV-pqt"/>
+                                    <segue destination="2" kind="push" identifier="Show Medication" id="sEK-eV-pqt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -41,9 +46,7 @@
                             <outlet property="delegate" destination="LDt-B7-KrS" id="klf-Hn-SD8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pill Box" id="XHl-uI-r49">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dko-VR-8kz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Pill Box" id="XHl-uI-r49"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gb-Wf-drF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +72,7 @@
             <objects>
                 <viewController id="2" customClass="rememberViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deq-0R-e8Q">
@@ -97,14 +100,14 @@
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="450" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwE-2N-dUY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="380" verticalHuggingPriority="450" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwE-2N-dUY">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="83" type="user" id="WWE-rW-Uq4"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" type="user" id="0aS-Kd-wlm"/>
+                                    <constraint firstAttribute="height" constant="32" id="Z0m-yZ-Y9x"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <fragment content="Give me some directions!">
                                         <attributes>
                                             <font key="NSFont" size="14" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -147,13 +150,12 @@
                             <constraint firstItem="3r4-7K-rMD" firstAttribute="trailing" secondItem="8MY-yK-Lyi" secondAttribute="trailing" type="user" id="1u5-3p-IJU"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="width" secondItem="otc-Fc-val" secondAttribute="width" type="user" id="3C2-pO-0H3"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="width" secondItem="pwE-2N-dUY" secondAttribute="width" type="user" id="3Qf-fW-Ct8"/>
-                            <constraint firstItem="8MY-yK-Lyi" firstAttribute="top" secondItem="3" secondAttribute="top" constant="161" type="user" id="5dj-U4-Pi9"/>
-                            <constraint firstItem="IZG-Sm-q0A" firstAttribute="top" secondItem="3" secondAttribute="top" constant="117" type="user" id="7h8-OJ-EPD"/>
+                            <constraint firstItem="IZG-Sm-q0A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="100" type="user" id="9QS-Zu-9VE"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="width" secondItem="3r4-7K-rMD" secondAttribute="width" type="user" id="EEl-VN-Qq7"/>
-                            <constraint firstItem="DjY-9X-MCT" firstAttribute="top" secondItem="3" secondAttribute="top" constant="45" type="user" id="I71-eJ-xpX"/>
+                            <constraint firstItem="8MY-yK-Lyi" firstAttribute="top" secondItem="qTd-bh-uo4" secondAttribute="top" type="default" id="J4N-cT-m1R"/>
                             <constraint firstItem="qTd-bh-uo4" firstAttribute="leading" secondItem="otc-Fc-val" secondAttribute="leading" type="user" id="LSR-d1-e4h"/>
                             <constraint firstAttribute="centerX" secondItem="otc-Fc-val" secondAttribute="centerX" type="user" id="Lat-eP-wjb"/>
-                            <constraint firstItem="pwE-2N-dUY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="254" type="user" id="NyT-yy-zIA"/>
+                            <constraint firstItem="otc-Fc-val" firstAttribute="top" secondItem="3" secondAttribute="top" constant="73" id="NIN-nj-vIW"/>
                             <constraint firstItem="deq-0R-e8Q" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Nz0-GJ-zs7"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="leading" secondItem="pwE-2N-dUY" secondAttribute="leading" type="user" id="O81-x4-Egc"/>
                             <constraint firstItem="qTd-bh-uo4" firstAttribute="leading" secondItem="IZG-Sm-q0A" secondAttribute="leading" type="user" id="Q90-q3-Cu1"/>
@@ -162,28 +164,28 @@
                             <constraint firstItem="otc-Fc-val" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="31" type="user" id="V4T-ZC-in8"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="leading" secondItem="otc-Fc-val" secondAttribute="leading" type="user" id="WDC-QG-rl4"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="leading" secondItem="qTd-bh-uo4" secondAttribute="leading" type="user" id="WRq-nB-Bdt"/>
+                            <constraint firstAttribute="bottom" secondItem="pwE-2N-dUY" secondAttribute="bottom" constant="84" id="WaI-p4-Jno"/>
                             <constraint firstItem="3r4-7K-rMD" firstAttribute="leading" secondItem="pwE-2N-dUY" secondAttribute="leading" type="user" id="Wnk-um-SSA"/>
-                            <constraint firstItem="otc-Fc-val" firstAttribute="top" secondItem="DjY-9X-MCT" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="cB2-Ae-LTu"/>
-                            <constraint firstItem="3r4-7K-rMD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="204" id="caU-Wv-O2e"/>
-                            <constraint firstItem="3r4-7K-rMD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="204" type="user" id="f0m-bV-MXY"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="height" secondItem="IZG-Sm-q0A" secondAttribute="height" type="user" id="fIf-ko-yiQ"/>
                             <constraint firstItem="qTd-bh-uo4" firstAttribute="leading" secondItem="pwE-2N-dUY" secondAttribute="leading" type="user" id="fvh-tu-pFT"/>
-                            <constraint firstItem="qTd-bh-uo4" firstAttribute="top" secondItem="3" secondAttribute="top" constant="161" type="user" id="jXV-8a-bsb"/>
                             <constraint firstItem="3r4-7K-rMD" firstAttribute="width" secondItem="DjY-9X-MCT" secondAttribute="width" type="user" id="l0e-6k-7tS"/>
-                            <constraint firstItem="DjY-9X-MCT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="45" type="user" id="lvz-wR-c60"/>
-                            <constraint firstItem="8MY-yK-Lyi" firstAttribute="top" secondItem="qTd-bh-uo4" secondAttribute="top" type="user" id="mf3-E5-zLG"/>
                             <constraint firstItem="qTd-bh-uo4" firstAttribute="leading" secondItem="3r4-7K-rMD" secondAttribute="leading" type="user" id="mnh-TD-en1"/>
                             <constraint firstItem="deq-0R-e8Q" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="-53" id="mpQ-eE-GH6"/>
-                            <constraint firstItem="IZG-Sm-q0A" firstAttribute="top" secondItem="otc-Fc-val" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="nTG-Q0-v2U"/>
-                            <constraint firstItem="qTd-bh-uo4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="161" type="user" id="pnA-FK-6Ay"/>
+                            <constraint firstItem="qTd-bh-uo4" firstAttribute="top" secondItem="3" secondAttribute="top" constant="176" id="n6m-5n-hFt"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="width" secondItem="IZG-Sm-q0A" secondAttribute="width" type="user" id="rEW-Tp-Anw"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="height" secondItem="otc-Fc-val" secondAttribute="height" type="user" id="szc-qi-rgZ"/>
+                            <constraint firstItem="DjY-9X-MCT" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vXq-Mb-iTp"/>
+                            <constraint firstAttribute="bottom" secondItem="3r4-7K-rMD" secondAttribute="bottom" constant="148" id="voJ-Lq-xUH"/>
+                            <constraint firstItem="IZG-Sm-q0A" firstAttribute="top" secondItem="3" secondAttribute="top" constant="119" id="wEN-YJ-LYu"/>
                             <constraint firstItem="pwE-2N-dUY" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="31" type="user" id="yGs-Eb-Clv"/>
                             <constraint firstAttribute="trailing" secondItem="otc-Fc-val" secondAttribute="trailing" constant="31" type="user" id="yic-j5-dWQ"/>
                             <constraint firstItem="DjY-9X-MCT" firstAttribute="height" secondItem="qTd-bh-uo4" secondAttribute="height" type="user" id="z7V-OP-8pm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Medication Name" id="uYp-o7-Rck"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="medName" destination="DjY-9X-MCT" id="qDy-zm-f8a"/>
                         <outlet property="pharmTextView" destination="pwE-2N-dUY" id="Mdg-Ce-v6e"/>

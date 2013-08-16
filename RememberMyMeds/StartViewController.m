@@ -8,59 +8,79 @@
 
 #import "StartViewController.h"
 #import "rememberViewController.h"
+#import "Meds.h"
+#import "Prescription.h"
 
 @interface StartViewController ()
+
+@property (nonatomic, strong) Meds *meds;
+
 
 @end
 
 @implementation StartViewController
+@synthesize medications = _medications;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+-(Meds*)meds{
+    if (!_meds){
+        _meds = [[Meds alloc] init];
     }
-    return self;
+    return _meds;
 }
 
-- (void)viewDidLoad
-{
+-(void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)insertNewObject:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+     NSLog(@"ADD BUTTON BEING CALLED");
+    Prescription *script1 = [[Prescription alloc] initWithName:@"Lipitor"];
+    [self.meds addRXtoBox:script1];
+    [self.tableView reloadData];
 }
+
+
+-(NSMutableArray *)medications{
+    if (!_medications){
+        _medications = [NSMutableArray arrayWithObjects:@"Cool", @"No", nil];
+    }
+    return _medications;
+    
+}
+
+-(void)setMedications:(NSMutableArray *)medications{
+    _medications = medications;
+    [self.tableView reloadData];
+    
+}
+
+-(NSString *)titleForRow:(NSUInteger)row{
+    return [self.meds.medlist objectAtIndex:row];
+}
+-(NSString *)subtitleForRow:(NSUInteger)row{
+    return @"Take 1 Tablet 5 Times / Day";
+}
+
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
 
-    // Return the number of sections.
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return 1;
+    return [self.meds.medlist count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"MedCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil)
     {
@@ -68,52 +88,26 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = @"Cool";
+    cell.textLabel.text = [self titleForRow:indexPath.row];
+    cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"medName"]) {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Show Medication"]) {
+                if ([segue.destinationViewController isKindOfClass:[rememberViewController class]]) {
+                    rememberViewController *rVC = (rememberViewController *)segue.destinationViewController;
+                    rVC.title = [self titleForRow:indexPath.row];
+                    
+                }
+            
+        }
+    }
 
         
     }

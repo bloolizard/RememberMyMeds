@@ -10,4 +10,7 @@
 
 @interface StartViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) NSMutableArray *medications;
+
+
 @end
